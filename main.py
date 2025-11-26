@@ -36,7 +36,6 @@ class Enemy(Character):
         super().__init__(name, health, strength, defense, crit)
 
 #Battle Class
-
 class Battle:
     def __init__(self, player, enemy):
         self.player = player
