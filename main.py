@@ -8,22 +8,22 @@ class Character:
         self.strength = strength
         self.defense = defense
         self.crit = crit
-    def is_alive(self): # returns false if character health goes below 0
+    def is_alive(self): 
         return self.health > 0
-    def calculate_damage(self, target): # character's strength - the target's defense = damage
+    def calculate_damage(self, target): 
         if(self.strength > target.defense):
             return self.strength - target.defense
         else:
             return 0
-    def take_damage(self, damage): # subtracts the damage from the character's health 
+    def take_damage(self, damage):  
         self.health -= damage
-        if self.health < 0: # doesn't allow negative health
+        if self.health < 0:
             self.health = 0
     def attack(self,target): 
-        damage = self.calculate_damage(target) # use function above to find character's damage to the target
-        target.take_damage(damage) # apply damage to target's hp
-        print(f'{self.name} dealt {damage} damage to {target.name}') # print damage
-        if not target.is_alive(): # if target dies then announce it
+        damage = self.calculate_damage(target)
+        target.take_damage(damage)
+        print(f'{self.name} dealt {damage} damage to {target.name}') 
+        if not target.is_alive():
             print(f"{target.name} has been defeated!")
 # Player Class
 class Player(Character):
@@ -45,13 +45,9 @@ class Battle:
             self.player.attack(self.enemy)
             if not self.enemy.is_alive():
                 break
-            self.enemy.attack(self.player)
-           
-            
-                
-            
+            self.enemy.attack(self.player)       
+             
 # Main 
-
 print("----------------------------------")
 print("Welcome to Arajen's Adventure Game!")
 print("----------------------------------")
